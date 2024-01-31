@@ -10,5 +10,8 @@ numbers for users before placing a wager, trade, or draft on their players of ch
 
 <h2>Updates</h2>
 1/31/24: Currently the project in the initial development stage. Stay tuned for updates. 
+Added Heroku integration; website deployment can be found at the temporary URL below:
+https://nbaplayerstats-243062f5955c.herokuapp.com/
+
 
 
