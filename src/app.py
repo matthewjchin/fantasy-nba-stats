@@ -21,8 +21,11 @@ def main():
         </p>
         
         <input name="user_input">
+        <input type="submit" value="Submit!">
+    </form>
+    
+    <form action="/echo_nba" method="POST">
         <p>Who is your favorite NBA player?</p>     
-        
         <input name="player_name">
         <input type="submit" value="Submit!">
     </form>
@@ -32,6 +35,11 @@ def main():
 @app.route("/echo_user_input", methods=["POST"])
 def echo_input():
     input_text = request.form.get("user_input", "")
+    return "Greeting: " + input_text
+
+
+@app.route("/echo_nba", methods=["POST"])
+def echo_nba_player():
     player_name = request.form.get("player_name", "")
-    return ("Greeting: " + input_text +
-            "<p>Your favorite NBA player is: " + player_name + "</p>")
+    return "<p>Your favorite NBA player is: " + player_name + "</p>"
+
