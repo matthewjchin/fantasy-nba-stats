@@ -21,7 +21,7 @@ def main():
         </p>
         
         <input name="user_input">
-        <input type="submit" value="Submit!">
+        
     </form>
     
     <form action="/echo_nba" method="POST">

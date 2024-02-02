@@ -1,4 +1,4 @@
-<h1>Fantasy NBA Player Lookup</h1>
+<h1>Fantasy NBA Player Stats Lookup</h1>
 
 This will be a web application that will allow users to search up their desired NBA player and search up their 
 basketball stats, current or former. 
