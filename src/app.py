@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
+
+from database import Users
 
 app = Flask(__name__)
 
@@ -36,6 +39,7 @@ def main():
 @app.route("/echo_user_input", methods=["POST"])
 def echo_input():
     input_text = request.form.get("user_input", "")
+
     return "Greeting: " + input_text
 
 
