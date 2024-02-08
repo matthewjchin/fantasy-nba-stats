@@ -4,9 +4,9 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.sqlite3'
-
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.sqlite3'
+#
+# db = SQLAlchemy(app)
 # class Player(db.Model):
 
 
@@ -50,5 +50,4 @@ def main():
         <input type="submit" value="Submit!">
     </form>
     '''
-
 
