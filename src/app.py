@@ -1,15 +1,42 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.sqlite3'
 #
 # db = SQLAlchemy(app)
 # class Player(db.Model):
-
-from flask import Flask, request
+#
+# app = Flask(__name__)
+#
+#
+# @app.route("/")
+# def main():
+#     return '''
+#     <h1>Enter a Greeting</h1>
+#     <form action="/echo_user_input" method="POST">
+#         <p>Hello there! Enter a name or a sentence of your choosing.
+#         Soon this will be a website for NBA basketball players' metrics for stats gurus,
+#         fantasy players, or curiosity.
+#
+#         <br>
+#
+#         Suitable for fantasy drafts and trades, sports betting, statisticians, and gurus.
+#         In the meantime, enter a greeting to get started.
+#         </p>
+#
+#         <input name="user_input">
+#         <input type="submit" value="Submit!">
+#     </form>
+#
+#     <form action="/echo_nba" method="POST">
+#         <p>Who is your favorite NBA player?</p>
+#         <input name="player_name">
+#         <input type="submit" value="Submit!">
+#     </form>
+#     '''
 
 app = Flask(__name__)
 
@@ -17,28 +44,24 @@ app = Flask(__name__)
 @app.route("/")
 def main():
     return '''
-    <h1>Enter a Greeting</h1>
-    <form action="/echo_user_input" method="POST">
-        <p>Hello there! Enter a name or a sentence of your choosing. 
-        Soon this will be a website for NBA basketball players' metrics for stats gurus, 
-        fantasy players, or curiosity. 
+    
+    <p>Hello there! Enter a name or a sentence of your choosing.
+        Soon this will be a website for NBA basketball players' metrics for stats gurus,
+        fantasy players, or curiosity.
 
         <br>
 
-        Suitable for fantasy drafts and trades, sports betting, statisticians, and gurus. 
-        In the meantime, enter a greeting to get started. 
+        Suitable for fantasy drafts and trades, sports betting, statisticians, and gurus.
+        In the meantime, enter a greeting to get started.
         </p>
 
-        <input name="user_input">
-        <input type="submit" value="Submit!">
-    </form>
+     <form action="/echo_user_input" method="POST">
+         <input name="user_input">
+         <input type="submit" value="Submit!">
+     </form>
+     '''
 
-    <form action="/echo_nba" method="POST">
-        <p>Who is your favorite NBA player?</p>     
-        <input name="player_name">
-        <input type="submit" value="Submit!">
-    </form>
-    '''
+
 
 
 @app.route("/echo_user_input", methods=["POST"])
