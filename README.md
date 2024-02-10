@@ -18,5 +18,6 @@ The details on the library can be found as [nba_api on GitHub](https://github.co
 the repository for being able to easily access NBA.com to provide statistics of NBA players for users to have for this
 site. The goal is to save any users' search information from the webpage onto the SQLite database. 
 
+Update: created branch for any unfunctionable code
 
 
