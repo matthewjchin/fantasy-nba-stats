@@ -13,5 +13,10 @@ numbers for users before placing a wager, trade, or draft on their players of ch
 Added Heroku integration; website deployment can be found at the temporary URL below:
 https://nbaplayerstats-243062f5955c.herokuapp.com/
 
+2/9/24: Added store_data.py file. Demonstrates backend feature of collecting data from the NBA API Python library. 
+The details on the library can be found as [nba_api on GitHub](https://github.com/swar/nba_api), giving much credit to
+the repository for being able to easily access NBA.com to provide statistics of NBA players for users to have for this
+site. The goal is to save any users' search information from the webpage onto the SQLite database. 
+
 
 
