@@ -1,0 +1,33 @@
+
+    <form action="/echo_user_input" method="POST">
+    <input name="user_input">
+    <input type="submit" value="Submit!">
+ </form>
+
+
+
+'''
+<form>
+player = get_player_info()
+        entry = Player(player_id=player)
+        db.session.add(entry)
+        db.session.commit()
+</form>
+'''
+
+
+@app.route("/echo_user_input", methods=["POST"])
+def echo_nba_player():
+    player_name = request.form.get("user_input", "")
+
+    return "<p>Your favorite NBA player is: " + player_name + "</p>"
+
+# @app.route("/echo_user_input", methods=["POST"])
+# def echo_input():
+#     input_text = request.form.get("user_input", "")
+#     return "Greeting: " + input_text
+
+
+
+
+

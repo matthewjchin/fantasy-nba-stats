@@ -51,7 +51,6 @@ def get_total_points(pid):
     return sum(player_career.get_data_frames()[0]['PTS'])
 
 
-
 if __name__ == '__main__':
     db.create_all()
     # Enter number between 0 and 530
