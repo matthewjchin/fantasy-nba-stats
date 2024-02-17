@@ -46,28 +46,8 @@ def get_player_name_active():
         return "The player cannot be found. Please go back and try again."
     else:
         nba_player_career = playercareerstats.PlayerCareerStats(player_id=nba_player[0]['id'])
+
         return nba_player_career.get_normalized_json()
-
-
-
-
-# # #  Old code, takes too much time and space to gather all data from get_players() function
-
-    # player_info = dict()
-    # player_stats = list()
-    # nba_players = players.get_players()
-    # for x in nba_players:
-    #     player_info = x
-    #     # player_common_info = commonplayerinfo.CommonPlayerInfo(player_id=player_info.get('id'), proxy='127.0.0.1:80',
-    #     #                                                        headers=custom_headers, timeout=600)
-    #     # player_stats = playercareerstats.PlayerCareerStats(player_id=player_info.get('id'))
-    #     if x['full_name'] == user_input:
-    #         if x['is_active']:
-    #             # return str(player_stats.get_data_frames())
-    #             return str(player_info)
-    #             # return str(player_stats.get_data_frames()[0]) + "\n\n" + str(player_common_info)
-    #         else:
-    #             return str(player_info) + "<br> This player no longer plays or has never played in the NBA."
 
 
 @app.route("/")
@@ -87,7 +67,7 @@ def main():
             <input type="submit" value="Submit!">
         </form>
         
-        You can check if the player you entered is active or not. Enter the first and/or last name. <br>
+        You can check if the player you entered is active or not. Enter the first AND last name. <br>
         <form action="/echo_user_input_player" method="POST">
             <input name="user_input">
             <input type="submit" value="Submit!">
