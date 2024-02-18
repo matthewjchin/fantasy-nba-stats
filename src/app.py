@@ -5,13 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 from nba_api.stats.endpoints import playercareerstats, commonplayerinfo
 from nba_api.stats.static import players
 
-# import nba_api
 import requests
 
 app = Flask(__name__)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.sqlite3'
-
 db = SQLAlchemy(app)
 
 
@@ -28,25 +25,9 @@ def get_player_name_active():
 
     nba_player = players.find_players_by_full_name(user_input)
     if user_input != nba_player[0]['full_name']:
-        # custom_headers = {
-        #     'Host': 'stats.nba.com',
-        #     'Connection': 'keep-alive',
-        #     'Cache-Control': 'max-age=0',
-        #     'Upgrade-Insecure-Requests': '1',
-        #     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
-        #     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-        #     'Accept-Encoding': 'gzip, deflate, br',
-        #     'Accept-Language': 'en-US,en;q=0.9',
-        # }
-        #
-        # player_common_info = commonplayerinfo.CommonPlayerInfo(player_id=nba_player.get('id'),
-        #     proxy='127.0.0.1:80', headers=custom_headers, timeout=600)
-        #
-        # return str(player_common_info.get_response())
         return "The player cannot be found. Please go back and try again."
     else:
         nba_player_career = playercareerstats.PlayerCareerStats(player_id=nba_player[0]['id'])
-
         return nba_player_career.get_normalized_json()
 
 
