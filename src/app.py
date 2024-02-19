@@ -1,8 +1,34 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
+from nba_api.stats.endpoints import playercareerstats, commonplayerinfo
+from nba_api.stats.static import players
+
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.sqlite3'
+db = SQLAlchemy(app)
+
+
+@app.route("/echo_user_input", methods=["POST"])
+def echo_input():
+    input_text = request.form.get("user_input", "")
+    return "Greeting: " + input_text
+
+
+@app.route("/echo_user_input_player", methods=["POST"])
+def get_player_name_active():
+
+    user_input = request.form["user_input"]
+
+    nba_player = players.find_players_by_full_name(user_input)
+    if user_input != nba_player[0]['full_name']:
+        return "The player cannot be found. Please go back and try again."
+    else:
+        nba_player_career = playercareerstats.PlayerCareerStats(player_id=nba_player[0]['id'])
+        return nba_player_career.get_normalized_json()
+
 
 @app.route("/")
 def main():
@@ -22,16 +48,23 @@ def main():
          <input name="user_input">
          <input type="submit" value="Submit!">
      </form>
+    
+    <br>
+    
+    You can check if the player you entered is active or not. 
+    Enter the first AND last name and spell correctly. <br>
+    NOTE: We are working to get a drop down menu and/or features to search by last name. 
+    <form action="/echo_user_input_player" method="POST">
+        <input name="user_input">
+        <input type="submit" value="Submit!">
+    </form>
+     
      '''
 
 
-@app.route("/echo_user_input", methods=["POST"])
-def echo_input():
-    input_text = request.form.get("user_input", "")
-    return "Greeting: " + input_text
+if __name__ == "__main__":
+    app.run(debug=True)
+    main()
 
 
-@app.route("/echo_nba", methods=["POST"])
-def echo_nba_player():
-    player_name = request.form.get("player_name", "")
-    return "<p>Your favorite NBA player is: " + player_name + "</p>"
+
