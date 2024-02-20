@@ -9,6 +9,6 @@ MarkupSafe==2.1.4
 packaging==23.2
 Werkzeug==3.0.1
 zipp==3.17.0
-flask_sqlalchemy==3.1.1
+
 requests~=2.31.0
 

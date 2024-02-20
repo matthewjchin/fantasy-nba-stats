@@ -1,21 +1,21 @@
 import requests
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 from nba_api.stats.endpoints import commonplayerinfo, playercareerstats
 from nba_api.stats.static import players
 import random
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Players.sqlite3'
-app.app_context().push()
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Players.sqlite3'
+# app.app_context().push()
+#
+# db = SQLAlchemy(app)
 
-db = SQLAlchemy(app)
 
-
-class Players(db.Model):
-    player_id = db.Column(db.Integer, primary_key=True, nullable=False)
-    player = db.Column(db.String, primary_key=False)
-    player_ppg = db.Column(db.Float, primary_key=False, nullable=False)
+# class Players(db.Model):
+#     player_id = db.Column(db.Integer, primary_key=True, nullable=False)
+#     player = db.Column(db.String, primary_key=False)
+#     player_ppg = db.Column(db.Float, primary_key=False, nullable=False)
     # player_ppg = db.Column(db.Float, nullable=False)
     # stats = db.Column(db.String)
 
@@ -72,7 +72,7 @@ def get_3pfg_pct(pid):
 
 
 if __name__ == '__main__':
-    db.create_all()
+    # db.create_all()
     # Enter number between 0 and 530
     num = random.randint(0, len(players.get_active_players()))
     player_info = get_player_name(num)
@@ -87,10 +87,10 @@ if __name__ == '__main__':
     print(player_points)
     print(get_fg_pct(player_info['id']))
 
-    new_player = Players(player_id=player_info['id'], player=player_info['full_name'] #)
-                         , player_ppg=player_points)
-                         # , stats=player_stats)
-    db.session.add(new_player)
-    db.session.commit()
+    # new_player = Players(player_id=player_info['id'], player=player_info['full_name'] #)
+    #                      , player_ppg=player_points)
+    #                      # , stats=player_stats)
+    # db.session.add(new_player)
+    # db.session.commit()
 
 

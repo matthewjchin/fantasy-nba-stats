@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
+
 from nba_api.stats.endpoints import playercareerstats, commonplayerinfo
 from nba_api.stats.static import players
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.sqlite3'
-db = SQLAlchemy(app)
 
 
 @app.route("/echo_user_input", methods=["POST"])
