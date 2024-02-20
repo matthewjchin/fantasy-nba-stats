@@ -9,10 +9,10 @@ from nba_api.stats.static import players
 app = Flask(__name__)
 
 
-@app.route("/echo_user_input", methods=["POST"])
-def echo_input():
-    input_text = request.form.get("user_input", "")
-    return "Greeting: " + input_text
+# @app.route("/echo_user_input", methods=["POST"])
+# def echo_input():
+#     input_text = request.form.get("user_input", "")
+#     return "Greeting: " + input_text
 
 
 @app.route("/echo_user_input_player", methods=["POST"])
@@ -38,15 +38,6 @@ def main():
 
         <br>
 
-        Suitable for fantasy drafts and trades, sports betting, statisticians, and gurus.
-        In the meantime, enter a greeting to get started.
-        </p>
-
-     <form action="/echo_user_input" method="POST">
-         <input name="user_input">
-         <input type="submit" value="Submit!">
-     </form>
-    
     <br>
     
     You can check if the player you entered is active or not. 
@@ -63,6 +54,18 @@ def main():
 if __name__ == "__main__":
     app.run(debug=True)
     main()
+
+
+'''
+ Suitable for fantasy drafts and trades, sports betting, statisticians, and gurus.
+        In the meantime, enter a greeting to get started.
+        </p>
+
+     <form action="/echo_user_input" method="POST">
+         <input name="user_input">
+         <input type="submit" value="Submit!">
+     </form>
+    '''
 
 
 
