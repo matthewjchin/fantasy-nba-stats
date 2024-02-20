@@ -1,15 +1,12 @@
 import requests
 from flask import Flask
-# from flask_sqlalchemy import SQLAlchemy
+
 from nba_api.stats.endpoints import commonplayerinfo, playercareerstats
 from nba_api.stats.static import players
 import random
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Players.sqlite3'
-# app.app_context().push()
-#
-# db = SQLAlchemy(app)
+
 
 
 # class Players(db.Model):
