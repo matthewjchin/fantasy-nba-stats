@@ -47,6 +47,7 @@ google-auth-oauthlib @ file:///tmp/build/80754af9/google-auth-oauthlib_161712056
 google-pasta @ file:///Users/ktietz/demo/mc3/conda-bld/google-pasta_1630577991354/work
 greenlet==3.0.3
 grpcio @ file:///C:/b/abs_ccut8qek12/croot/grpc-suite_1681912611694/work
+gunicorn==21.2.0
 h5py @ file:///C:/b/abs_17fav01gwy/croot/h5py_1691589733413/work
 idna @ file:///C:/b/abs_bdhbebrioa/croot/idna_1666125572046/work
 ipykernel @ file:///C:/b/abs_07rkft_vaz/croot/ipykernel_1691121700587/work
