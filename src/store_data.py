@@ -5,16 +5,26 @@
 # from nba_api.stats.static import players
 # import random
 #
+# import os
+# import psycopg2
+#
+#
+# # Get database URL in Heroku Postgres
+# DB_URL = os.environ['HEROKU_POSTGRESQL_MAUVE_URL']
+# conn = psycopg2.connect(DB_URL, sslmode='require')
+#
 # app = Flask(__name__)
-#
-#
-#
-# # class Players(db.Model):
-# #     player_id = db.Column(db.Integer, primary_key=True, nullable=False)
-# #     player = db.Column(db.String, primary_key=False)
-# #     player_ppg = db.Column(db.Float, primary_key=False, nullable=False)
-#     # player_ppg = db.Column(db.Float, nullable=False)
-#     # stats = db.Column(db.String)
+# #
+# #
+# #
+# # # class Players(db.Model):
+# # #     player_id = db.Column(db.Integer, primary_key=True, nullable=False)
+# # #     player = db.Column(db.String, primary_key=False)
+# # #     player_ppg = db.Column(db.Float, primary_key=False, nullable=False)
+# #     # player_ppg = db.Column(db.Float, nullable=False)
+# #     # stats = db.Column(db.String)
+# #
+# #
 #
 #
 # # Picks a number between 0 and 530 (current number of active NBA players) to return their id, first name, and last name
@@ -30,8 +40,10 @@
 #     #     'Connection': 'keep-alive',
 #     #     'Cache-Control': 'max-age=0',
 #     #     'Upgrade-Insecure-Requests': '1',
-#     #     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
-#     #     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+#     #     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3)
+#     #     AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+#     #     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,
+#     #     image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
 #     #     'Accept-Encoding': 'gzip, deflate, br',
 #     #     'Accept-Language': 'en-US,en;q=0.9',
 #     # }
