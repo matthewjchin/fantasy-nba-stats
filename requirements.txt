@@ -122,6 +122,7 @@ PyQt5==5.15.7
 PyQt5-sip @ file:///C:/Windows/Temp/abs_d7gmd2jg8i/croots/recipe/pyqt-split_1659273064801/work/pyqt_sip
 pyrsistent @ file:///C:/ci_310/pyrsistent_1642117077485/work
 PySocks @ file:///C:/ci_310/pysocks_1642089375450/work
+python==3.10.13
 python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
 python-json-logger @ file:///C:/b/abs_cblnsm6puj/croot/python-json-logger_1683824130469/work
 pytz @ file:///C:/b/abs_22fofvpn1x/croot/pytz_1671698059864/work

@@ -1,9 +1,13 @@
 import requests
 from flask import Flask
-
+from flask_sqlalchemy import SQLAlchemy
 from nba_api.stats.endpoints import commonplayerinfo, playercareerstats
 from nba_api.stats.static import players
 import random
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Players.sqlite3'
+app.app_context().push()
 
 import os
 import psycopg2
@@ -14,17 +18,15 @@ DB_URL = os.environ['HEROKU_POSTGRESQL_MAUVE_URL']
 conn = psycopg2.connect(DB_URL, sslmode='require')
 
 app = Flask(__name__)
-#
-#
-#
-# # class Players(db.Model):
-# #     player_id = db.Column(db.Integer, primary_key=True, nullable=False)
-# #     player = db.Column(db.String, primary_key=False)
-# #     player_ppg = db.Column(db.Float, primary_key=False, nullable=False)
-#     # player_ppg = db.Column(db.Float, nullable=False)
-#     # stats = db.Column(db.String)
-#
-#
+db = SQLAlchemy(app)
+
+
+class Players(db.Model):
+    player_id = db.Column(db.Integer, primary_key=True, nullable=False)
+    player = db.Column(db.String, primary_key=False)
+    player_ppg = db.Column(db.Float, nullable=False)
+    stats = db.Column(db.String)
+
 
 
 # Picks a number between 0 and 530 (current number of active NBA players) to return their id, first name, and last name
